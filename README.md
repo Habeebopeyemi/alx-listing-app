@@ -1,40 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Best Practices when using State in react:
 
-## Getting Started
+### Keep State Flat:
 
-First, run the development server:
+`Whether using Redux or Context API, try to keep your state as flat as possible to avoid deep nesting and make updates more straightforward.`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Modularize:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`Organize your state management code in a modular way. For Redux, this means using slices and combining reducers. For Context API, this means creating separate contexts for different parts of your state.`
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Type Safety:
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+`Leverage TypeScript’s type system to ensure type safety throughout your state management logic.`
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### Selector Functions:
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`Use selector functions to encapsulate and reuse the logic for accessing specific parts of the state.`
 
-## Learn More
+### Performance Optimization:
 
-To learn more about Next.js, take a look at the following resources:
+`Be mindful of performance, especially with Context API. Use React.memo and useMemo to prevent unnecessary re-renders.`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+### Avoid Mutating State:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+`Always create a new copy of the state when updating it to avoid mutating the original state.`
